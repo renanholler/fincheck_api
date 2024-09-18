@@ -1,13 +1,13 @@
-import { Body, Controller, Post } from '@nestjs/common';
-import { CreateUserDto } from './dto/create-user.dto';
+import { Controller, Get } from '@nestjs/common';
+import { ActiveUserId } from 'src/shared/decorators/ActiveUserId';
 import { UsersService } from './users.service';
 
 @Controller('users')
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
-  @Post()
-  create(@Body() createUserDto: CreateUserDto) {
-    return this.usersService.create(createUserDto);
+  @Get('me')
+  me(@ActiveUserId() userId: string) {
+    return this.usersService.getUserById(userId);
   }
 }
