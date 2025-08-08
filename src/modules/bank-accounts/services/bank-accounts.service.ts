@@ -2,13 +2,13 @@ import { Injectable } from '@nestjs/common';
 import { BankAccountsRepository } from 'src/shared/database/repositories/bank-accounts.repositories';
 import { CreateBankAccountDto } from '../dto/create-bank-account.dto';
 import { UpdateBankAccountDto } from '../dto/update-bank-account.dto';
-import { ValidateBankOwnershipOwnershipService } from './validate-bank-account-ownership.service';
+import { ValidateBankAccountOwnershipService } from './validate-bank-account-ownership.service';
 
 @Injectable()
 export class BankAccountsService {
   constructor(
     private readonly bankAccountsRepo: BankAccountsRepository,
-    private readonly validateBankOwnershipOwnershipService: ValidateBankOwnershipOwnershipService,
+    private readonly validateBankAccountOwnershipService: ValidateBankAccountOwnershipService,
   ) {}
 
   create(userId: string, createBankAccountDto: CreateBankAccountDto) {
@@ -36,7 +36,7 @@ export class BankAccountsService {
     bankAccountId: string,
     updateBankAccountDto: UpdateBankAccountDto,
   ) {
-    await this.validateBankOwnershipOwnershipService.validate(
+    await this.validateBankAccountOwnershipService.validate(
       userId,
       bankAccountId,
     );
@@ -55,7 +55,7 @@ export class BankAccountsService {
   }
 
   async remove(userId: string, bankAccountId: string) {
-    await this.validateBankOwnershipOwnershipService.validate(
+    await this.validateBankAccountOwnershipService.validate(
       userId,
       bankAccountId,
     );
