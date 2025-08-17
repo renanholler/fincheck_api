@@ -1,5 +1,7 @@
-<img src="https://nestjs.com/img/logo-small.svg" width="50" alt="Nest Logo" />
-<img src="https://raw.githubusercontent.com/prisma/presskit/main/Assets/Prisma-DarkSymbol.svg" width="40" alt="Prisma Logo" />
+<div>
+  <img src="https://nestjs.com/img/logo-small.svg" width="50" alt="Nest Logo" />
+  <img src="https://raw.githubusercontent.com/prisma/presskit/main/Assets/Prisma-DarkSymbol.svg" width="40" alt="Prisma Logo" />
+</div>
 
 ## Project setup
 
